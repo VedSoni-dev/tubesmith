@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Tube</title>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="#/" aria-label="Home">
+    <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="7" width="26" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M9 21 L14 14 L18 18 L23 11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span id="brand-name">My Tube</span>
+  </a>
+  <form class="search" id="search-form" role="search">
+    <input id="q" type="search" placeholder="Search topics, talks, people…  ( / )" autocomplete="off" aria-label="Search">
+  </form>
+  <nav class="nav">
+    <a href="#/library" title="Liked, watch later, history">Library</a>
+    <button id="open-settings" class="icon-btn" title="Settings" aria-label="Settings">⚙︎</button>
+  </nav>
+</header>
+
+<div class="filters" id="filters"></div>
+<main id="main" tabindex="-1"><p class="loading">Loading your tube…</p></main>
+
+<div class="overlay" id="player" hidden>
+  <div class="player-card" role="dialog" aria-modal="true" aria-label="Video player">
+    <button class="close" id="close-player" aria-label="Close (Esc)">✕</button>
+    <div class="frame"><iframe id="frame" title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+    <div class="player-body" id="player-body"></div>
+  </div>
+</div>
+
+<div class="overlay" id="settings" hidden>
+  <div class="panel" role="dialog" aria-modal="true" aria-label="Settings">
+    <button class="close" data-close="settings" aria-label="Close">✕</button>
+    <h2>Settings</h2>
+    <label>Thumbnails
+      <select id="set-thumbs">
+        <option value="mid">Middle-of-video frame</option>
+        <option value="frames">Scrub real frames on hover</option>
+        <option value="blur">Blurred until hover</option>
+        <option value="original">Original thumbnails</option>
+        <option value="none">No images</option>
+      </select>
+    </label>
+    <label>Titles
+      <select id="set-titles">
+        <option value="original">Original</option>
+        <option value="plain">Plain (de-clickbaited)</option>
+        <option value="both">Both</option>
+      </select>
+    </label>
+    <label class="check"><input type="checkbox" id="set-counts"> Show view counts</label>
+    <label>Theme
+      <select id="set-theme"><option value="">System</option><option value="dark">Dark</option><option value="light">Light</option></select>
+    </label>
+    <div class="about" id="about"></div>
+    <button class="ghost danger" id="reset-local">Clear likes, history and watch later</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
